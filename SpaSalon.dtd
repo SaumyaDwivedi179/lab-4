@@ -1,0 +1,20 @@
+<!ELEMENT service (id, name, description, price, availability, duration, departureDate, destination)>
+<!ATTLIST service
+    id ID #REQUIRED
+    name CDATA #REQUIRED
+    description CDATA #REQUIRED
+    price CDATA #REQUIRED
+    availability (Available | NotAvailable | LimitedAvailability) #REQUIRED
+    duration CDATA #REQUIRED
+    departureDate CDATA #REQUIRED
+    destination CDATA #REQUIRED
+>
+
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT price (#PCDATA)>
+<!ELEMENT availability (#PCDATA)>
+<!ELEMENT duration (#PCDATA)>
+<!ELEMENT departureDate (#PCDATA)>
+<!ELEMENT destination (#PCDATA)>

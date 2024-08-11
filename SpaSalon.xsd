@@ -1,0 +1,50 @@
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Define a simple type for price -->
+    <xs:simpleType name="PriceType">
+        <xs:restriction base="xs:decimal">
+            <xs:minInclusive value="0.00"/>
+            <xs:maxExclusive value="10000.00"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Define a simple type for availability -->
+    <xs:simpleType name="AvailabilityType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Available"/>
+            <xs:enumeration value="Not Available"/>
+            <xs:enumeration value="Limited Availability"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- Define the main schema -->
+    <xs:element name="spaSalon">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="services">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="service" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <!-- Added bookedDates element -->
+                                    </xs:sequence>
+                                    <xs:attribute name="id" type="xs:string" use="required"/>
+                                    <xs:attribute name="name" type="xs:string" use="required"/>
+                                    <xs:attribute name="description" type="xs:string" use="required"/>
+                                    <xs:attribute name="price" type="PriceType" use="required"/>
+                                    <xs:attribute name="availability" type="AvailabilityType" use="required"/>
+                                    <xs:attribute name="duration" type="xs:string" use="required"/>
+                                    <xs:attribute name="departureDate" type="xs:date" use="required"/>
+                                    <xs:attribute name="destination" type="xs:string" use="required"/>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
